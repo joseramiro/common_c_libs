@@ -52,21 +52,3 @@ unsigned char Utils_Check_In_Range(unsigned int value, unsigned int setpoint, un
         return 0;
     }
 }
-
-unsigned int Utils_Reset_PIC()
-{
-    /* Perform a system unlock sequence */
-    SYSKEY = 0xaa996655; // write first unlock key to SYSKEY
-    SYSKEY = 0x556699aa; // write second unlock key to SYSKEY
-    /* Set SWRST bit to arm reset */
-    RSWRSTSET = 1;
-    /* Read RSWRST register to trigger reset */
-    unsigned int dummy;
-    dummy = RSWRST;
-    /* Prevent any unwanted code execution until reset occurs*/
-    asm("nop");
-    asm("nop");
-    asm("nop");
-    asm("nop");
-    return dummy;
-}
