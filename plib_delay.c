@@ -5,7 +5,7 @@
  * @file plib_delay.c
  * @brief Définitions des fonctions de délai
  * @author Ramiro Najera
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2025-04-23
  */
 
@@ -42,7 +42,7 @@ void Utils_Delay_Ms(unsigned long ms)
     }
 }
 
-void Utils_Reset_PIC()
+unsigned int Utils_Reset_PIC()
 {
     /* Perform a system unlock sequence */
     SYSKEY = 0xaa996655; // write first unlock key to SYSKEY
@@ -57,4 +57,6 @@ void Utils_Reset_PIC()
     asm("nop");
     asm("nop");
     asm("nop");
+    // Return dummy to avoid compilation warning
+    return dummy;
 }

@@ -5,7 +5,7 @@
  * @file plib_delay.h
  * @brief Définitions des fonctions de délai
  * @author Ramiro Najera
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2025-04-23
  */
 
@@ -29,7 +29,8 @@ void Utils_Delay_Ms(unsigned long ms);
 
 /**
  * @brief Fonction pour rédemarrer PIC
+ * unsigned int Lecture de registre reset
  */
-void Utils_Reset_PIC();
+unsigned int Utils_Reset_PIC();
 
 #endif  // PLIB_DELAY_H
