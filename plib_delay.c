@@ -1,19 +1,27 @@
 #include <xc.h>
 #include "plib_delay.h"
 
-void Utils_Delay_100ns(unsigned long nanoseconds_100)
+/**
+ * @file plib_delay.c
+ * @brief Définitions des fonctions de délai
+ * @author Ramiro Najera
+ * @version 1.0.0
+ * @date 2025-04-23
+ */
+
+void Wait_100ns(unsigned long ns100)
 {
     unsigned long i = 0;
-    for (i = 0; i < nanoseconds_100; i++)
+    for (i = 0; i < ns100; i++)
     {
         asm("nop");
     }
 }
 
-void Utils_Delay_Us(unsigned long microseconds)
+void Utils_Delay_Us(unsigned long us)
 {
     unsigned long i = 0, j = 0;
-    for (i = 0; i < microseconds; i++)
+    for (i = 0; i < us; i++)
     {
         for (j = 0; j < 10; j++)
         {
@@ -22,10 +30,10 @@ void Utils_Delay_Us(unsigned long microseconds)
     }
 }
 
-void Utils_Delay_Ms(unsigned long milliseconds)
+void Utils_Delay_Ms(unsigned long ms)
 {
     unsigned long i = 0, j = 0;
-    for (i = 0; i < milliseconds; i++)
+    for (i = 0; i < ms; i++)
     {
         for (j = 0; j < 10000; j++)
         {
@@ -34,7 +42,7 @@ void Utils_Delay_Ms(unsigned long milliseconds)
     }
 }
 
-unsigned int Utils_Reset_PIC()
+void Utils_Reset_PIC()
 {
     /* Perform a system unlock sequence */
     SYSKEY = 0xaa996655; // write first unlock key to SYSKEY
@@ -49,5 +57,4 @@ unsigned int Utils_Reset_PIC()
     asm("nop");
     asm("nop");
     asm("nop");
-    return dummy;
 }
