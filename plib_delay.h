@@ -29,7 +29,7 @@ void Utils_Delay_Ms(unsigned long ms);
 
 /**
  * @brief Fonction pour rédemarrer PIC
- * unsigned int Lecture de registre reset
+ * @return unsigned int Lecture de registre reset
  */
 unsigned int Utils_Reset_PIC();
 
