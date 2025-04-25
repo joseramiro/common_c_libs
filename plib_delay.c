@@ -1,6 +1,3 @@
-#include <xc.h>
-#include "plib_delay.h"
-
 /**
  * @file plib_delay.c
  * @brief Définitions des fonctions de délai
@@ -8,6 +5,9 @@
  * @version 1.0.1
  * @date 2025-04-23
  */
+
+#include <xc.h>
+#include "plib_delay.h"
 
 void Wait_100ns(unsigned long ns100)
 {
