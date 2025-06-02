@@ -55,6 +55,8 @@ union LongUsCharUnion
     unsigned long usLongValue;
     /** @brief Valeur long */
     long longValue;
+    /** @brief Valeur float */
+    float floatValue;
     /** @brief Chaine de char */
     unsigned char usChar[4];
     /** @brief Chaine de int */
