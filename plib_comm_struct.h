@@ -5,7 +5,7 @@
  * @file plib_comm_struct.h
  * @brief Définitions de structures pour communications
  * @author Ramiro Najera
- * @version 1.0.1
+ * @version 1.0.2
  * @date 2025-04-23
  */
 
@@ -41,8 +41,10 @@ typedef struct
     unsigned char channel;  /**< Channel SPI */
     /** @brief Adresse SPI */
     unsigned char address;  /**< Adresse SPI */
-    /** @brief Functions pour mettre à jour Chip Select */
+    /** @brief Fonctions pour mettre à jour Chip Select */
     GPIO_t cs;
+    /** @brief Fonctions pour mettre à jour Enable (Opto-coupler) */
+    GPIO_t en;
 }SPI_t;
 
 #endif  // PLIB_COMM_STRUCT_H

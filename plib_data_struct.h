@@ -5,7 +5,7 @@
  * @file plib_data_struct.h
  * @brief Définitions types de données et fonctions de manipulation
  * @author Ramiro Najera
- * @version 1.0.1
+ * @version 1.0.2
  * @date 2025-04-23
  */
 
