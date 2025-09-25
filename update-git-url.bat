@@ -9,7 +9,7 @@ IF "%~1"=="" (
 
 SET TOKEN=%~1
 SET USERNAME=joseramiro
-SET REPO_URL=common_c_files.git
+SET REPO_URL=common_c_libs.git
 
 REM Build the new URL
 SET NEW_URL=https://%USERNAME%:%TOKEN%@github.com/%USERNAME%/%REPO_URL%
