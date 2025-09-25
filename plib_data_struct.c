@@ -9,21 +9,6 @@
 #include <xc.h>
 #include "plib_data_struct.h"
 
-void Utils_Set_16bits_Flag(unsigned int *variable, unsigned char index)
-{
-    *variable |= (1 << index);
-}
-
-void Utils_Clear_16bits_Flag(unsigned int *variable, unsigned char index)
-{
-    *variable &= ~(1 << index);
-}
-
-unsigned char Utils_Check_16bits_Flag(unsigned int variable, int index)
-{
-    return (variable & (1 << index)) != 0;
-}
-
 unsigned char Utils_Calculate_CRC8_Raw(unsigned char* buffer, unsigned char size)
 {
     uint8_t crc = 0xff;

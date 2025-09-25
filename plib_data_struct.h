@@ -21,12 +21,17 @@
 #define SIZE_FLOAT      4
 
 /** @brief Combine 2 bytes */
-#define CONCAT_BYTES(byte1, byte0) (((unsigned int)(byte1) << 8) + (byte0))
+#define CONCAT(byte1, byte0) (((unsigned int)(byte1) << 8) + (byte0))
 /** @brief Retourne le MSB d'un int */
 #define GET_HIGH_BYTE(intValue) ((unsigned char)((intValue >> 8)))
 /** @brief Retourne le LSB d'un int */
 #define GET_LOW_BYTE(intValue) ((unsigned char)((intValue) & 0xFF))
-
+/** @brief Met bit à 1 d'un flag */
+#define SET_FLAG_BIT(flag, bit) ((flag) |= (1U << (bit)))
+/** @brief Met bit à 0 d'un flag */
+#define CLEAR_FLAG_BIT(flag, bit)  ((flag) &= ~(1U << (bit)))
+/** @brief Retourne la valeur d'un bit d'un flag */
+#define GET_FLAG_BIT(flag, bit)   (((flags >> (bit)) & 1U)
 
 /** @brief Union pour manipuler des données entre float et chaine de char */
 union FloatUsCharUnion
@@ -71,28 +76,6 @@ union CharUsCharUnion
     /** @brief Valeur char */
     char charValue;
 };
-
-/**
- * @brief Met à 1 un bit dans une variable à 16 bits
- * @param variable Variable à modifier
- * @param index Index de bit à mettre à 1
- */
-void Utils_Set_16bits_Flag(unsigned int *variable, unsigned char index);
-
-/**
- * @brief Met à 0 un bit dans une variable à 16 bits
- * @param variable Variable à modifier
- * @param index Index de bit à mettre à 0 
- */
-void Utils_Clear_16bits_Flag(unsigned int *variable, unsigned char index);
-
-/**
- * @brief Retourne le bit dans une variable à 16 bits
- * @param variable Variable
- * @param index Index de bit à lire
- * @return unsigned char Valeur du bit
- */
-unsigned char Utils_Check_16bits_Flag(unsigned int variable, int index);
 
 /**
  * @brief Calcule un CRC 8 bits
