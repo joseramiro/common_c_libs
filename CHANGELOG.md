@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2025-09-26
+- Fixed bug in inline macro GET_FLAG_BIT variable flag
+
 ## [1.0.3] - 2025-09-25
 - Converted 16bitmap functions to inline macros
 

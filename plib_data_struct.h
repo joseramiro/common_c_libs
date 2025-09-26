@@ -5,7 +5,7 @@
  * @file plib_data_struct.h
  * @brief Définitions types de données et fonctions de manipulation
  * @author Ramiro Najera
- * @version 1.0.3
+ * @version 1.0.4
  * @date 2025-04-23
  */
 
@@ -31,7 +31,7 @@
 /** @brief Met bit à 0 d'un flag */
 #define CLEAR_FLAG_BIT(flag, bit)  ((flag) &= ~(1U << (bit)))
 /** @brief Retourne la valeur d'un bit d'un flag */
-#define GET_FLAG_BIT(flag, bit)   (((flags >> (bit)) & 1U)
+#define GET_FLAG_BIT(flag, bit)   ((flag >> (bit)) & 1U)
 
 /** @brief Union pour manipuler des données entre float et chaine de char */
 union FloatUsCharUnion
