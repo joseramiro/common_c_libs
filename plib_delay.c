@@ -2,14 +2,14 @@
  * @file plib_delay.c
  * @brief Définitions des fonctions de délai
  * @author Ramiro Najera
- * @version 1.0.4
+ * @version 1.0.5
  * @date 2025-04-23
  */
 
 #include <xc.h>
 #include "plib_delay.h"
 
-void Wait_100ns(unsigned long ns100)
+void Wait100ns(unsigned long ns100)
 {
     unsigned long i = 0;
     for (i = 0; i < ns100; i++)
@@ -18,7 +18,7 @@ void Wait_100ns(unsigned long ns100)
     }
 }
 
-void Utils_Delay_Us(unsigned long us)
+void Wait1us(unsigned long us)
 {
     unsigned long i = 0, j = 0;
     for (i = 0; i < us; i++)
@@ -30,19 +30,8 @@ void Utils_Delay_Us(unsigned long us)
     }
 }
 
-void Utils_Delay_Ms(unsigned long ms)
-{
-    unsigned long i = 0, j = 0;
-    for (i = 0; i < ms; i++)
-    {
-        for (j = 0; j < 10000; j++)
-        {
-            asm("nop");
-        }
-    }
-}
 
-unsigned int Utils_Reset_PIC()
+unsigned int ResetPIC()
 {
     /* Perform a system unlock sequence */
     SYSKEY = 0xaa996655; // write first unlock key to SYSKEY

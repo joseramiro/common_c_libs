@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2025-10-03
+- Renamed Set and Clear pointer functions of GPIO_t
+- Renamed Write and Read pointer functions of SPI_t
+- Renamed GPIO_t attributesin SPI_t structure
+
 ## [1.0.4] - 2025-09-26
 - Fixed bug in inline macro GET_FLAG_BIT variable flag
 

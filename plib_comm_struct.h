@@ -5,10 +5,12 @@
  * @file plib_comm_struct.h
  * @brief Définitions de structures pour communications
  * @author Ramiro Najera
- * @version 1.0.4
+ * @version 1.0.5
  * @date 2025-04-23
  */
 
+#include <stddef.h>
+#include <stdbool.h>
 /** 
  * @enum SPIChannel_t
  * @brief Numéros de channels de communication SPI
@@ -26,9 +28,9 @@ typedef enum
 typedef struct 
 {
     /** @brief Functions pour mettre à jour Chip Select à 1 */
-    void(*set)(void);
+    void(*Set)(void);
     /** @brief Functions pour mettre à jour Chip Select à 0 */
-    void(*clear)(void);
+    void(*Clear)(void);
 }GPIO_t;
 
 /** 
@@ -41,10 +43,12 @@ typedef struct
     unsigned char channel;  /**< Channel SPI */
     /** @brief Adresse SPI */
     unsigned char address;  /**< Adresse SPI */
+    bool (*Write)(void* tx, size_t len);
+    bool (*Read)(void* rx, size_t len);
     /** @brief Fonctions pour mettre à jour Chip Select */
-    GPIO_t cs;
+    GPIO_t pinCS;
     /** @brief Fonctions pour mettre à jour Enable (Opto-coupler) */
-    GPIO_t en;
+    GPIO_t pinEN;
 }SPI_t;
 
 #endif  // PLIB_COMM_STRUCT_H
